@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `もりたブログ`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Takumi Mori`,
+      summary: `大学生(Web系エンジニアとしてインターン中)`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `プログラミング等の情報を発信しています。`,
+    siteUrl: `https://tech-blog.takumi3488.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `takumi3488`,
+      github: `takumi3488`
     },
   },
   plugins: [
@@ -112,13 +113,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `もりたブログ`,
+        short_name: `もりた`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        theme_color: `#333333`,
+        display: `standalone`,
+        icon: `src/images/icon.jpg`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
