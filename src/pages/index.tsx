@@ -9,7 +9,7 @@ const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
 
   return (
-    <Layout isRoot>
+    <Layout>
       <Seo title="All posts" />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {

@@ -1,10 +1,10 @@
-import React, {FC} from "react"
+import React, { FC } from "react"
 import Header from "./header"
 
-const Layout: FC<{isRoot?: boolean}> = ({ children, isRoot }) => {
+const Layout: FC<{ isRoot?: boolean }> = ({ children }) => {
   return (
     <>
-      <Header isRoot={isRoot}/>
+      <Header />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
