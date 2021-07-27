@@ -1,6 +1,9 @@
 ---
 title: Hello World
 date: "2015-05-01"
+tags: 
+  - tag1
+  - tag2
 ---
 
 This is my first post on my new fake blog! How exciting!
