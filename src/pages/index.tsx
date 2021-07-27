@@ -6,7 +6,6 @@ import { BlogIndexQuery } from '../../graphql-types'
 
 const BlogIndex: FC<{data: BlogIndexQuery}> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
-
   return (
     <Layout>
       <Seo title="TOP" />
@@ -56,6 +55,7 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "YYYY年MM月DD日")
           title
+          tags
         }
       }
     }
