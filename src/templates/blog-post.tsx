@@ -4,16 +4,14 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
     <Layout>
       <Seo
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
       />
       <article
         className="blog-post"
@@ -79,8 +77,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        date(formatString: "YYYY年MM月DD日")
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
