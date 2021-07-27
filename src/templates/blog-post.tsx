@@ -1,10 +1,10 @@
-import * as React from "react"
+import React, {FC} from "react"
 import { Link, graphql } from "gatsby"
-
+import { BlogPostBySlugQuery } from "../../graphql-types"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next } = data
 

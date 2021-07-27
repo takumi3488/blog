@@ -1,9 +1,10 @@
-import * as React from "react"
+import React, {FC} from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { BlogIndexQuery } from '../../graphql-types'
 
-const BlogIndex = ({ data }) => {
+const BlogIndex: FC<{data: BlogIndexQuery}> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
 
   return (
@@ -40,7 +41,7 @@ const BlogIndex = ({ data }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query BlogIndex {
     site {
       siteMetadata {
         title
