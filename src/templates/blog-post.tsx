@@ -14,13 +14,13 @@ const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
         title={post.frontmatter.title}
       />
       <article
-        className="blog-post"
+        className="p-6 w-full max-w-screen-md m-auto"
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <p className="text-right">{post.frontmatter.date}</p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -28,7 +28,7 @@ const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
         />
         <hr />
       </article>
-      <nav className="blog-post-nav">
+      <nav className="blog-post-nav p-6 w-full max-w-screen-md m-auto">
         <ul
           style={{
             display: `flex`,

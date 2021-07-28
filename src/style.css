@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* markdown用 */
+blockquote{
+  padding: 10px;
+  margin: 5px auto 10px;
+  font-style: italic;
+  color: #777777;
+  background: #f3f3f3;
+  border-left: 4px solid #a4d8ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+thead{
+  background: #ccc;
+}
+
+th, td{
+  border: solid 1px #333;
+  padding: 4px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.67rem 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+}
+h1,h2{
+  border-bottom: solid 1px #333;
+}
+h3{
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+h4,h5,h6{
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+ul {
+  margin-left: 1.33rem;
+  list-style-type: disc;
+}
+ul > li > ul{
+  list-style: circle;
+}
+ol{
+  margin-left: 1.33rem;
+  list-style-type: decimal;
+}
