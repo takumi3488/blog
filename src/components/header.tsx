@@ -38,10 +38,7 @@ const Header: FC<{ title: string }> = ({ title }) => {
             <AboutButton additionalClass="block sm:hidden" />
           </span>
         </div>
-        <nav className="hidden sm:flex justify-between w-full">
-          <Link to="tags" className="text-sm text-gray-300 hover:text-gray-100">
-            タグ一覧
-          </Link>
+        <nav className="hidden sm:flex justify-end w-full">
           <AboutButton />
         </nav>
       </div>
