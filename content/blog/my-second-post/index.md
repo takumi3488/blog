@@ -2,7 +2,7 @@
 title: My Second Post!
 date: "2015-05-06"
 tags:
-  - tag2
+  - tag1
   - tag3
 ---
 

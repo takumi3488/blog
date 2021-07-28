@@ -1,14 +1,14 @@
 import React, { FC } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogIndexQuery } from "../../graphql-types"
-import tags from "../utils/tags.json"
 
 const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
   data,
   location,
 }) => {
+  const tags = data.allTagsCsv.nodes
   const allPosts = data.allMarkdownRemark.nodes
   const params = new URLSearchParams(location.search)
   const searchTag = params.get("tag")
@@ -17,7 +17,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
     : allPosts
   const title = searchTag ? `「${searchTag}」の記事一覧` : "TOP"
   return (
-    <Layout searchTag={searchTag} >
+    <Layout searchTag={searchTag}>
       <Seo title={title} />
       <div
         className="grid gap-2 p-6 w-full"
@@ -49,7 +49,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                       to={`/?tag=${tag}`}
                       className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300"
                     >
-                      {tags[tag]}
+                      {tags.find(t => t.id === tag).name}
                     </Link>
                   ))}
                 </div>
@@ -83,6 +83,13 @@ export const pageQuery = graphql`
           title
           tags
         }
+      }
+    }
+    allTagsCsv(sort: { fields: amount, order: DESC }) {
+      nodes {
+        id
+        name
+        amount
       }
     }
   }
