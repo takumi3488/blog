@@ -11,11 +11,12 @@ const Layout: FC<{ isRoot?: boolean }> = ({ children }) => {
         <main className="flex-1">{children}</main>
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
+          <ul className="list-none">
           {Object.keys(tags).map(tag => (
-            <Link to={`/?tag=${tag}`}>
-              <li style={{listStyleType: 'none'}}>{tags[tag]}</li>
+            <Link to={`/?tag=${tag}`} key={tag}>
+              <li>{tags[tag]}</li>
             </Link>
-          ))}
+          ))}</ul>
         </aside>
       </div>
       <footer className="w-full text-center text-white bg-gray-800 p-4">
