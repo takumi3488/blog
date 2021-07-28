@@ -3,7 +3,7 @@ import Header from "./header"
 import tags from "../utils/tags.json"
 import { Link } from "gatsby"
 
-const Layout: FC<{ isRoot?: boolean }> = ({ children }) => {
+const Layout: FC<{ searchTag?: string }> = ({ children, searchTag }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -14,7 +14,7 @@ const Layout: FC<{ isRoot?: boolean }> = ({ children }) => {
           <ul className="list-none">
           {Object.keys(tags).map(tag => (
             <Link to={`/?tag=${tag}`} key={tag}>
-              <li>{tags[tag]}</li>
+              <li className={`mb-2 text-gray-${searchTag === tag ? 900 : 400}`}>{tags[tag]}</li>
             </Link>
           ))}</ul>
         </aside>

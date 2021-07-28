@@ -17,7 +17,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
     : allPosts
   const title = searchTag ? `「${searchTag}」の記事一覧` : "TOP"
   return (
-    <Layout>
+    <Layout searchTag={searchTag} >
       <Seo title={title} />
       <div
         className="grid gap-2 p-6 w-full"
