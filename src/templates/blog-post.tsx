@@ -17,6 +17,7 @@ const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
         className="p-6 w-full max-w-screen-md m-auto"
         itemScope
         itemType="http://schema.org/Article"
+        id="markdown"
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>

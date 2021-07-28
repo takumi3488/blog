@@ -9,7 +9,7 @@ module.exports = {
     siteUrl: `https://tech-blog.takumi3488.com/`,
     social: {
       twitter: `takumi3488`,
-      github: `takumi3488`
+      github: `takumi3488`,
     },
   },
   plugins: [
@@ -129,6 +129,7 @@ module.exports = {
     // `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-graphql-codegen`,
-    `gatsby-plugin-use-query-params`
+    `gatsby-plugin-use-query-params`,
+    `gatsby-plugin-sass`,
   ],
 }
