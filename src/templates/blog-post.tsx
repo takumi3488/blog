@@ -9,7 +9,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const { previous, next } = data
 
   return (
-    <Layout>
+    <Layout title={post.frontmatter.title}>
       <Seo title={post.frontmatter.title} />
       <article
         className="p-6 max-w-full"

@@ -3,7 +3,11 @@ import Header from "./header"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { TagsQuery } from "../../graphql-types"
 
-const Layout: FC<{ searchTag?: string }> = ({ children, searchTag }) => {
+const Layout: FC<{ title: string; searchTag?: string }> = ({
+  children,
+  searchTag,
+  title,
+}) => {
   const data: TagsQuery = useStaticQuery(graphql`
     query Tags {
       allTagsCsv(sort: { fields: amount, order: DESC }) {
@@ -18,7 +22,7 @@ const Layout: FC<{ searchTag?: string }> = ({ children, searchTag }) => {
   const tags = data.allTagsCsv.nodes
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header title={title} />
       <div className="flex justify-center w-full flex-1">
         <main className="flex-1">{children}</main>
         <aside className="hidden md:block w-40 p-6">

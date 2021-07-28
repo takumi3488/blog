@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
-const Header: FC = () => {
+const Header: FC<{ title: string }> = ({ title }) => {
   return (
     <header className="relative text-white font-sans w-full">
       <StaticImage
@@ -28,12 +28,15 @@ const Header: FC = () => {
           </a>
         </div>
         <div className="w-full">
-          <h1 className="flex justify-between sm:justify-center w-full">
-            <Link to="/" className="text-2xl text-center font-semibold block">
-              もりた記
-            </Link>
+          <span className="flex justify-between sm:justify-center w-full items-center">
+            <span className="flex items-center gap-2 sm:flex-col">
+              <Link to="/" className="text-2xl text-center font-semibold block">
+                <h1>もりた記</h1>
+              </Link>
+              <h2 className="inline-block">-{title}-</h2>
+            </span>
             <AboutButton additionalClass="block sm:hidden" />
-          </h1>
+          </span>
         </div>
         <nav className="hidden sm:flex justify-between w-full">
           <Link to="tags" className="text-sm text-gray-300 hover:text-gray-100">
