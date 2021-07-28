@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+main{
+  width: clamp(250px, 100vw, 630px);
+}
 /* markdown用 */
 #markdown {
   blockquote {

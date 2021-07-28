@@ -1,20 +1,18 @@
-import React, {FC} from "react"
+import React, { FC } from "react"
 import { Link, graphql } from "gatsby"
 import { BlogPostBySlugQuery } from "../../graphql-types"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
+const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const post = data.markdownRemark
   const { previous, next } = data
 
   return (
     <Layout>
-      <Seo
-        title={post.frontmatter.title}
-      />
+      <Seo title={post.frontmatter.title} />
       <article
-        className="p-6 w-full max-w-screen-md m-auto"
+        className="p-6 max-w-full"
         itemScope
         itemType="http://schema.org/Article"
         id="markdown"
@@ -27,9 +25,9 @@ const BlogPostTemplate: FC<{data: BlogPostBySlugQuery}> = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+        <hr className="mt-6" />
       </article>
-      <nav className="blog-post-nav p-6 w-full max-w-screen-md m-auto">
+      <nav className="blog-post-nav p-6 max-w-full">
         <ul
           style={{
             display: `flex`,
