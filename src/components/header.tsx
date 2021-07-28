@@ -30,23 +30,23 @@ const Header: FC = () => {
         <div className="w-full">
           <h1 className="flex justify-between sm:justify-center w-full">
             <Link to="/" className="text-2xl text-center font-semibold block">
-              もりたブログ
+              もりた記
             </Link>
-            <AboutButton additionalClass="block sm:hidden"/>
+            <AboutButton additionalClass="block sm:hidden" />
           </h1>
         </div>
         <nav className="hidden sm:flex justify-between w-full">
           <Link to="tags" className="text-sm text-gray-300 hover:text-gray-100">
             タグ一覧
           </Link>
-          <AboutButton/>
+          <AboutButton />
         </nav>
       </div>
     </header>
   )
 }
 
-const AboutButton: FC<{additionalClass?: string}> = ({additionalClass}) => {
+const AboutButton: FC<{ additionalClass?: string }> = ({ additionalClass }) => {
   return (
     <Link
       to="about"

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `もりたブログ`,
+    title: `もりた記`,
     author: {
       name: `Takumi Mori`,
       summary: `大学生(Web系エンジニアとしてインターン中)`,
@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-csv`,
       options: {
-        checkType: true
+        checkType: true,
       },
     },
     `gatsby-transformer-sharp`,
@@ -126,7 +126,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `もりたブログ`,
+        name: `もりた記`,
         short_name: `もりた`,
         start_url: `/`,
         background_color: `#ffffff`,
