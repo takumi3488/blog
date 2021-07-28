@@ -18,7 +18,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
   const title = searchTag ? `"${searchTag}"の記事一覧` : "TOP"
   return (
     <Layout searchTag={searchTag} title={title}>
-      <Seo title={title} />
+      <Seo />
       <div
         className="grid gap-2 p-6 w-full"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))" }}
