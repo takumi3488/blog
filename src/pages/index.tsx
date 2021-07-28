@@ -1,38 +1,48 @@
-import React, {FC} from "react"
+import React, { FC } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { BlogIndexQuery } from '../../graphql-types'
+import { BlogIndexQuery } from "../../graphql-types"
 
-const BlogIndex: FC<{data: BlogIndexQuery}> = ({ data }) => {
+const BlogIndex: FC<{ data: BlogIndexQuery }> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   return (
     <Layout>
       <Seo title="TOP" />
-      <ol style={{ listStyle: `none` }}>
+      <div
+        className="grid gap-2 p-6 w-full max-w-screen-md m-auto"
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))" }}
+      >
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-              </article>
-            </li>
+            <article
+              itemScope
+              itemType="http://schema.org/Article"
+              key={post.fields.slug}
+              className="border border-gray-400 rounded-xl p-4 h-48 flex flex-col justify-between shadow-md"
+            >
+              <header>
+                <h2>
+                  <Link to={post.fields.slug} itemProp="url">
+                    <span itemProp="headline" className="text-xl">{title}</span>
+                  </Link>
+                </h2>
+              </header>
+              <footer className="flex flex-col">
+                <div className="flex gap-1">
+                {post.frontmatter.tags.map(tag => (
+                  <Link to={`/?tag=${tag}`} className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300">
+                    {tag}
+                  </Link>
+                ))}</div>
+                <small className="text-right">{post.frontmatter.date}</small>
+              </footer>
+            </article>
           )
         })}
-      </ol>
+      </div>
     </Layout>
   )
 }
