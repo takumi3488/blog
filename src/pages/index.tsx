@@ -3,12 +3,17 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogIndexQuery } from "../../graphql-types"
+import tags from "../utils/tags.json"
 
-const BlogIndex: FC<{ data: BlogIndexQuery }> = ({ data }) => {
-  const posts = data.allMarkdownRemark.nodes
+const BlogIndex: FC<{ data: BlogIndexQuery, location: Location }> = ({ data, location }) => {
+  const allPosts = data.allMarkdownRemark.nodes
+  const params = new URLSearchParams(location.search)
+  const searchTag = params.get('tag')
+  const posts = searchTag ? allPosts.filter(post=>post.frontmatter.tags.includes(searchTag)) : allPosts
+  const title = searchTag ? `「${searchTag}」の記事一覧` : "TOP"
   return (
     <Layout>
-      <Seo title="TOP" />
+      <Seo title={title} />
       <div
         className="grid gap-2 p-6 w-full max-w-screen-md m-auto"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))" }}
@@ -34,7 +39,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery }> = ({ data }) => {
                 <div className="flex gap-1">
                 {post.frontmatter.tags.map(tag => (
                   <Link to={`/?tag=${tag}`} className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300">
-                    {tag}
+                    {tags[tag]}
                   </Link>
                 ))}</div>
                 <small className="text-right">{post.frontmatter.date}</small>
