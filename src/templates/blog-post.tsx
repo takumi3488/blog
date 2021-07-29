@@ -58,7 +58,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
 }
 
 const replaceLineBreak = (text: string): string => {
-  return text.replaceAll('\n','<br>')
+  return text.replace(/\n/g,'<br>')
 }
 
 export default BlogPostTemplate
