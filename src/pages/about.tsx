@@ -64,6 +64,8 @@ const About: FC = () => {
               <li>
                 その他
                 <ul>
+                  <li>科学計算</li>
+                  <li>競技プログラミング</li>
                   <li>Firebase</li>
                   <li>CI/CD(Github Actions)</li>
                   <li>Hasure</li>
