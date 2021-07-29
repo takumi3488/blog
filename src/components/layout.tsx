@@ -22,7 +22,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
   return (
     <div className="min-h-screen flex flex-col">
       <Header title={title} />
-      <div className="flex justify-center w-full flex-1">
+      <div className="flex justify-center w-full md:w-5/6 lg:w-2/3 xl:max-w-md flex-1 m-auto">
         <main className="flex-1">{children}</main>
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>

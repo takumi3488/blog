@@ -33,7 +33,7 @@ const Header: FC<{ title: string }> = ({ title }) => {
               <Link to="/" className="text-2xl text-center font-semibold block">
                 <h1>もりた記</h1>
               </Link>
-              <h2 className="inline-block">-{title}-</h2>
+              <h2 className="hidden sm:inline-block">-{title}-</h2>
             </span>
             <AboutButton additionalClass="block sm:hidden" />
           </span>

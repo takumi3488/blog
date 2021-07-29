@@ -22,7 +22,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
           <p className="text-right">{post.frontmatter.date}</p>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html! }}
+          dangerouslySetInnerHTML={{ __html: replaceLineBreak(post.html!) }}
           itemProp="articleBody"
         />
         <hr className="mt-6" />
@@ -55,6 +55,10 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
       </nav>
     </Layout>
   )
+}
+
+const replaceLineBreak = (text: string): string => {
+  return text.replaceAll('\n','<br>')
 }
 
 export default BlogPostTemplate
