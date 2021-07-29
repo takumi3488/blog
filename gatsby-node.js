@@ -98,18 +98,18 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
+      frontmatter: Frontmatter!
+      fields: Fields!
     }
 
     type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
+      title: String!
+      tags: [String!]!
+      date: Date! @dateformat
     }
 
     type Fields {
-      slug: String
+      slug: String!
     }
   `)
 }

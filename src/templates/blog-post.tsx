@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
-  const post = data.markdownRemark
+  const post = data.markdownRemark!
   const { previous, next } = data
 
   return (
@@ -22,7 +22,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
           <p className="text-right">{post.frontmatter.date}</p>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: post.html! }}
           itemProp="articleBody"
         />
         <hr className="mt-6" />

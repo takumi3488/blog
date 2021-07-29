@@ -49,7 +49,7 @@ const Header: FC<{ title: string }> = ({ title }) => {
 const AboutButton: FC<{ additionalClass?: string }> = ({ additionalClass }) => {
   return (
     <Link
-      to="about"
+      to="/about"
       className={`text-sm sm:text-sm border p-1 rounded-lg hover:bg-white hover:text-black ${additionalClass}`}
     >
       ABOUT

@@ -17,7 +17,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
     : allPosts
   const title = searchTag ? `"${searchTag}"の記事一覧` : "TOP"
   return (
-    <Layout searchTag={searchTag} title={title}>
+    <Layout searchTag={searchTag || undefined} title={title}>
       <Seo />
       <div
         className="grid gap-2 p-6 w-full"
@@ -49,7 +49,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                       to={`/?tag=${tag}`}
                       className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300"
                     >
-                      {tags.find(t => t.id === tag).name}
+                      {tags.find(t => t.id === tag)?.name}
                     </Link>
                   ))}
                 </div>
