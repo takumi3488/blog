@@ -31,7 +31,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
               <Link to={`/?tag=${tag.name}`} key={i}>
                 <li
                   className={`mb-2 ${
-                    searchTag !== tag.name ? "text-gray-300" : ""
+                    searchTag !== tag.name ? "text-gray-500" : ""
                   }`}
                 >
                   {tag.name}({tag.amount})
