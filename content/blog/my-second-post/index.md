@@ -2,8 +2,8 @@
 title: My Second Post!
 date: "2015-05-06"
 tags:
-  - tag1
-  - tag3
+  - タグ1
+  - タグ3
 ---
 
 Wow! I love blogging so much already.

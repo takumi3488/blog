@@ -12,7 +12,6 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
     query Tags {
       allTagsCsv(sort: { fields: amount, order: DESC }) {
         nodes {
-          id
           name
           amount
         }
@@ -28,11 +27,11 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
           <ul className="list-none">
-            {tags.map(tag => (
-              <Link to={`/?tag=${tag.id}`} key={tag.id}>
+            {tags.map((tag,i) => (
+              <Link to={`/?tag=${tag.name}`} key={i}>
                 <li
                   className={`mb-2 ${
-                    searchTag !== tag.id ? "text-gray-300" : ""
+                    searchTag !== tag.name ? "text-gray-300" : ""
                   }`}
                 >
                   {tag.name}({tag.amount})
