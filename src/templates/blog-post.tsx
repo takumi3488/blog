@@ -7,10 +7,12 @@ import Seo from "../components/seo"
 const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const post = data.markdownRemark!
   const { previous, next } = data
+  const siteTitle = data.site?.siteMetadata?.title
+  const title = post.frontmatter.title
 
   return (
-    <Layout title={post.frontmatter.title}>
-      <Seo title={post.frontmatter.title} />
+    <Layout title={title}>
+      <Seo title={title} />
       <article
         className="p-6 max-w-full"
         itemScope
@@ -18,15 +20,24 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
         id="markdown"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <h1 itemProp="headline">{title}</h1>
           <p className="text-right">{post.frontmatter.date}</p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: replaceLineBreak(post.html!) }}
           itemProp="articleBody"
         />
-        <hr className="mt-6" />
+        <a
+          href="https://twitter.com/share"
+          className="twitter-share-button"
+          data-url={`http://blog.takumi3488.com/arm-selenium-docker/`}
+          data-text={`${title} | ${siteTitle}`}
+          data-hashtags="もりた記"
+        >
+          Tweet
+        </a>
       </article>
+      <hr className="mt-2" />
       <nav className="blog-post-nav p-6 max-w-full">
         <ul
           style={{
@@ -58,7 +69,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
 }
 
 const replaceLineBreak = (text: string): string => {
-  return text.replace(/\n/g,'<br>')
+  return text.replace(/\n/g, "<br>")
 }
 
 export default BlogPostTemplate
