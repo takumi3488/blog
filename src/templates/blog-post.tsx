@@ -9,7 +9,6 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const { previous, next } = data
   const siteTitle = data.site?.siteMetadata?.title
   const title = post.frontmatter.title
-
   return (
     <Layout title={title}>
       <Seo title={title} />
@@ -39,15 +38,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
       </article>
       <hr className="mt-2" />
       <nav className="blog-post-nav p-6 max-w-full">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <ul className="flex flex-wrap justify-between list-none p-0 text-sm">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -69,7 +60,18 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
 }
 
 const replaceLineBreak = (text: string): string => {
-  return text.replace(/\n/g, "<br>")
+  const splitText = text.split(/<[^<]+>/)
+  const imgText = text.match(/<[^<]+>/g)
+  console.log(splitText)
+  console.log(imgText)
+  let res = ""
+  splitText.forEach((t, i) => {
+    res += t.replace(/\n/g, "<br>")
+    if(imgText && imgText.length > i){
+      res += imgText[i]
+    }
+  })
+  return res
 }
 
 export default BlogPostTemplate
