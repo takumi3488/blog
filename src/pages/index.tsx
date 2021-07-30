@@ -31,19 +31,19 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
               itemScope
               itemType="http://schema.org/Article"
               key={post.fields.slug}
-              className="border border-gray-400 rounded-xl p-4 h-48 flex flex-col justify-between shadow-md"
+              className="border border-gray-400 rounded-xl p-3 h-48 sm:h-60 flex flex-col justify-between shadow-md"
             >
               <header>
                 <h2>
                   <Link to={post.fields.slug} itemProp="url">
-                    <span itemProp="headline" className="text-xl">
+                    <span itemProp="headline" className="text-lg">
                       {title}
                     </span>
                   </Link>
                 </h2>
               </header>
-              <footer className="flex flex-col">
-                <div className="flex gap-1">
+              <footer className="flex flex-col gap-2">
+                <div className="flex gap-1 flex-wrap">
                   {post.frontmatter.tags.map(tag => (
                     <Link
                       to={`/?tag=${tag}`}

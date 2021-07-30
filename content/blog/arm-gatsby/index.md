@@ -1,5 +1,5 @@
 ---
-title: M1MacでGatsbyやNext.js等が使えないときの対処法
+title: M1MacでGatsbyやNext.jsを使う
 date: "2021-07-30"
 tags:
   - M1

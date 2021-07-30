@@ -1,5 +1,5 @@
 ---
-title: M1MacにてDockerでSeleniumを使う方法
+title: M1MacにてDockerでSeleniumを使う
 date: "2021-07-29"
 tags:
   - M1
