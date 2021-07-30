@@ -48,6 +48,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                     <Link
                       to={`/?tag=${tag}`}
                       className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300"
+                      key={tag}
                     >
                       {tags.find(t => t.name === tag)?.name}
                     </Link>
