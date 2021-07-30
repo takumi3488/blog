@@ -62,8 +62,6 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
 const replaceLineBreak = (text: string): string => {
   const splitText = text.split(/<[^<]+>/)
   const imgText = text.match(/<[^<]+>/g)
-  console.log(splitText)
-  console.log(imgText)
   let res = ""
   splitText.forEach((t, i) => {
     res += t.replace(/\n/g, "<br>")
