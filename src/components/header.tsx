@@ -1,8 +1,23 @@
 import React, { FC } from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { useStaticQuery } from "gatsby"
 
 const Header: FC<{ title: string }> = ({ title }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            social {
+              twitter
+              github
+            }
+          }
+        }
+      }
+    `
+  )
   return (
     <header className="relative text-white font-sans w-full">
       <StaticImage
@@ -12,14 +27,14 @@ const Header: FC<{ title: string }> = ({ title }) => {
       />
       <div className="absolute flex flex-col top-0 left-0 w-full h-full justify-center sm:justify-between items-center p-4 sm:p-6">
         <div className="hidden sm:flex justify-end space-x-2 w-full">
-          <a href="https://twitter.com/takumi3488" target="_blank">
+          <a href={`https://twitter.com/${site?.siteMetadata?.social?.twitter}`} target="_blank">
             <StaticImage
               src="../images/twitter.png"
               alt="Twitter"
               className="w-5"
             />
           </a>
-          <a href="https://github.com/takumi3488" target="_blank">
+          <a href={`https://github.com/${site?.siteMetadata?.social?.github}`} target="_blank">
             <StaticImage
               src="../images/github.png"
               alt="Github"

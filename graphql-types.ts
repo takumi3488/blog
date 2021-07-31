@@ -3794,23 +3794,33 @@ export type SiteBuildMetadataSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
+
 export type TagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TagsQuery = { allTagsCsv: { nodes: Array<Pick<TagsCsv, 'name' | 'amount'>> } };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
+export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<(
       Pick<SiteSiteMetadata, 'title' | 'description'>
       & { social?: Maybe<Pick<Social, 'twitter'>> }
     )> }> };
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+
+export type AboutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutQuery = { site?: Maybe<{ siteMetadata?: Maybe<{ social?: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
 
 export type BlogIndexQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3820,10 +3830,10 @@ export type BlogIndexQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSite
       & { fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'date' | 'title' | 'tags'> }
     )> }, allTagsCsv: { nodes: Array<Pick<TagsCsv, 'id' | 'name' | 'amount'>> } };
 
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
+export type Unnamed_4_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
 
 export type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];
@@ -3832,10 +3842,7 @@ export type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'title'>
-      & { social?: Maybe<Pick<Social, 'twitter'>> }
-    )> }>, markdownRemark?: Maybe<(
+export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl'>> }>, markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
     & { fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title' | 'date' | 'tags'> }
   )>, previous?: Maybe<{ fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title'> }>, next?: Maybe<{ fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title'> }> };

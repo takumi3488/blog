@@ -1,6 +1,6 @@
 # MyBlog
 ## URL
-https://blog.takumi3488.com/
+https://takumi3488.com/
 
 ## 作成目的
 - Tailwind, Gatsby3等試したい技術があったため

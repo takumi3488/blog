@@ -9,7 +9,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const post = data.markdownRemark!
   const { previous, next } = data
   const siteTitle = data.site?.siteMetadata?.title as string
-  const twitter = data.site?.siteMetadata?.social?.twitter as string
+  const siteUrl = data.site?.siteMetadata?.siteUrl as string
   const title = post.frontmatter.title
   return (
     <Layout title={title}>
@@ -29,7 +29,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
           itemProp="articleBody"
         />
         <TwitterShareButton
-          url={`http://blog.takumi3488.com/${data.markdownRemark?.fields.slug}`}
+          url={`${siteUrl}${data.markdownRemark?.fields.slug}`}
           title={`${title} | ${siteTitle}`}
           hashtags={[siteTitle]}
           resetButtonStyle={false}
@@ -85,9 +85,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        social {
-          twitter
-        }
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

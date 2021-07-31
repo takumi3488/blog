@@ -6,7 +6,7 @@ module.exports = {
       summary: `大学生(Web系エンジニアとしてインターン中)`,
     },
     description: `プログラミング等の情報を発信しています。`,
-    siteUrl: `https://tech-blog.takumi3488.com/`,
+    siteUrl: `https://takumi3488.com/`,
     social: {
       twitter: `takumi3488`,
       github: `takumi3488`,

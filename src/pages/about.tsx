@@ -1,9 +1,11 @@
 import React, { FC } from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { AboutQuery } from "../../graphql-types"
 
-const About: FC = () => {
+const About: FC<{data: AboutQuery}> = ({data}) => {
+  const social = data?.site?.siteMetadata?.social
   return (
     <Layout title="ABOUT">
       <Seo />
@@ -77,8 +79,8 @@ const About: FC = () => {
           </div>
           <h3>リンク</h3>
           <ul>
-            <li><a href="https://github.com/takumi3488">Github</a></li>
-            <li><a href="https://twitter.com/takumi3488">Twitter</a></li>
+            <li><a href={`https://github.com/${social?.github}`} target="_blank">Github</a></li>
+            <li><a href={`https://github.com/${social?.twitter}`} target="_blank">Twitter</a></li>
           </ul>
         </section>
         <hr className="my-4" />
@@ -89,5 +91,18 @@ const About: FC = () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query About {
+    site {
+      siteMetadata {
+        social {
+          twitter
+          github
+        }
+      }
+    }
+  }
+`
 
 export default About
