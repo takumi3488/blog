@@ -3832,7 +3832,10 @@ export type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, markdownRemark?: Maybe<(
+export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'title'>
+      & { social?: Maybe<Pick<Social, 'twitter'>> }
+    )> }>, markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
-    & { frontmatter: Pick<Frontmatter, 'title' | 'date' | 'tags'> }
+    & { fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title' | 'date' | 'tags'> }
   )>, previous?: Maybe<{ fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title'> }>, next?: Maybe<{ fields: Pick<Fields, 'slug'>, frontmatter: Pick<Frontmatter, 'title'> }> };

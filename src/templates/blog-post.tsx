@@ -3,11 +3,13 @@ import { Link, graphql } from "gatsby"
 import { BlogPostBySlugQuery } from "../../graphql-types"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { TwitterShareButton } from "react-share"
 
 const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const post = data.markdownRemark!
   const { previous, next } = data
-  const siteTitle = data.site?.siteMetadata?.title
+  const siteTitle = data.site?.siteMetadata?.title as string
+  const twitter = data.site?.siteMetadata?.social?.twitter as string
   const title = post.frontmatter.title
   return (
     <Layout title={title}>
@@ -26,15 +28,15 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: replaceLineBreak(post.html!) }}
           itemProp="articleBody"
         />
-        <a
-          href="https://twitter.com/share"
-          className="twitter-share-button"
-          data-url={`http://blog.takumi3488.com/arm-selenium-docker/`}
-          data-text={`${title} | ${siteTitle}`}
-          data-hashtags="もりた記"
+        <TwitterShareButton
+          url={`http://blog.takumi3488.com/${data.markdownRemark?.fields.slug}`}
+          title={`${title} | ${siteTitle}`}
+          hashtags={[siteTitle]}
+          resetButtonStyle={false}
+          className="bg-blue-400 hover:bg-blue-500 text-white px-1 rounded text-sm font-light float-right clear-right"
         >
           Tweet
-        </a>
+        </TwitterShareButton>
       </article>
       <hr className="mt-2" />
       <nav className="blog-post-nav p-6 max-w-full">
@@ -65,7 +67,7 @@ const replaceLineBreak = (text: string): string => {
   let res = ""
   splitText.forEach((t, i) => {
     res += t.replace(/\n/g, "<br>")
-    if(imgText && imgText.length > i){
+    if (imgText && imgText.length > i) {
       res += imgText[i]
     }
   })
@@ -83,12 +85,18 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        social {
+          twitter
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "YYYY年MM月DD日")

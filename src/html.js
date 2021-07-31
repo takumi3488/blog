@@ -13,11 +13,6 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <script data-ad-client="ca-pub-4022474033409111" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charSet="utf-8"
-        />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
