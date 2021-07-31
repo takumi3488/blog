@@ -4,6 +4,7 @@ https://takumi3488.com/
 
 ## 作成目的
 - Tailwind, Gatsby3等試したい技術があったため
+- 情報発信のモチベーションをあげるため
 
 ## 使用技術
 - Gatsby
