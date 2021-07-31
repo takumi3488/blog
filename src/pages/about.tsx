@@ -80,7 +80,7 @@ const About: FC<{data: AboutQuery}> = ({data}) => {
           <h3>リンク</h3>
           <ul>
             <li><a href={`https://github.com/${social?.github}`} target="_blank">Github</a></li>
-            <li><a href={`https://github.com/${social?.twitter}`} target="_blank">Twitter</a></li>
+            <li><a href={`https://twitter.com/${social?.twitter}`} target="_blank">Twitter</a></li>
           </ul>
         </section>
         <hr className="my-4" />
