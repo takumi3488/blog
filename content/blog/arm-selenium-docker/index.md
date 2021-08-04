@@ -85,7 +85,7 @@ Seleniumが出している他のimageに依存しているようです。このi
 **はい、面倒臭いですね。**
 
 ということで誰かが公開してくれているDocker imageを探してみましょう。
-とりあえずissuesを開いてみると[ちょうどいい感じのissue](https://github.com/SeleniumHQ/docker-selenium/issues/1076)がありました。この中を探すと……[すぐ見つかりました](https://github.com/SeleniumHQ/docker-selenium/issues/1076#issuecomment-763017837)。`arm64`に対応したDocker imageを公開してくれている優しい人がいますね。Firebox版のみですが、気にする人はいないでしょう。
+とりあえずissuesを開いてみると[ちょうどいい感じのissue](https://github.com/SeleniumHQ/docker-selenium/issues/1076)がありました。この中を探すと……[すぐ見つかりました](https://github.com/SeleniumHQ/docker-selenium/issues/1076#issuecomment-763017837)。`arm64`に対応したDocker imageを公開してくれている優しい人がいますね。Firefox版のみですが、気にする人はいないでしょう。
 
 野良imageを使う時にはセキュリティリスクがないかを慎重にチェックしなければなりませんが、Selenium公式版からほとんど変わっていないのでcommit履歴を見れば安全なことはすぐわかると思います。
 ではこのimageを使って動かしてみましょう。
