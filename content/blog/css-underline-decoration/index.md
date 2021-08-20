@@ -17,21 +17,26 @@ p.sample-text {
 }
 ```
 こう書くと
-![画像1](image1.png)
+<p style="text-decoration:underline;">テキスト</p>
 こう表示されます。
 色や形状もある程度アレンジが可能です。
+
 ```css
 /* style.css */
 p.sample-text {
   text-decoration: underline dotted #FF3490;
 }
 ```
-![画像2](image2.png)
+<p style="text-decoration:underline dotted #FF3490;">テキスト</p>
 このように、点線にしたり色を変えたりできます。
 しかし、線を太くしたい場合にはどうすればよいでしょうか。
 例えば以下のようにマーカー風の線を引きたいときなどです。
-![画像3](image3.png)
+
+<br>
+<p style="border-bottom:solid 5px yellow;display:inline-block;">テキスト</p>
+
 パッと思いつくのは、border-bottomeを使った方法です。
+
 ```css
 /* style.css */
 p.sample-text {
@@ -39,9 +44,10 @@ p.sample-text {
 }
 ```
 実はこれだと線がながーく伸びてしまいます。
-![画像4](image4.png)
+<p style="border-bottom:solid 5px yellow;">テキスト</p>
 実はpタグのようなinlineの要素はデフォルトで横に伸びきってしまっています(ブラウザによるかも)。
 これを回避するために、inlineじゃなくしてやりましょう。
+
 ```css
 /* style.css */
 p.sample-text {
@@ -50,4 +56,4 @@ p.sample-text {
 }
 ```
 これでうまくいきます。
-![画像3](image3.png)
+<p style="border-bottom:solid 5px yellow;display:inline-block;">テキスト</p>
