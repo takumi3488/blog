@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
-main{
+main {
   width: clamp(250px, 100vw, 630px);
 }
-p{
+p {
   line-height: 1.8;
 }
-h1,h2{
+h1,
+h2 {
   line-height: 1.2;
 }
-h3{
+h3 {
   line-height: 1.4;
 }
-h4,h5,h6{
+h4,
+h5,
+h6 {
   line-height: 1.6;
 }
 /* markdown用 */
@@ -55,6 +57,28 @@ h4,h5,h6{
   h6 {
     font-size: 1.25rem;
   }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    margin-bottom: 1.2rem;
+  }
+  p,
+  ul {
+    margin-top: 1.2rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
   ul {
     margin-left: 1.33rem;
     list-style-type: disc;
@@ -66,11 +90,11 @@ h4,h5,h6{
     margin-left: 1.33rem;
     list-style-type: decimal;
   }
-  a{
+  a {
     color: #3196e2;
   }
 
-  #twitter-widget-0{
+  #twitter-widget-0 {
     margin: 20px 0 0 auto;
   }
 }

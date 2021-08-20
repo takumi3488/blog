@@ -5,6 +5,7 @@ tags:
   - Rails
 ---
 
+
 表題の`param is missing or the value is empty`のエラーなのですが、検索すると次々と見慣れない解決策(ストロングパラメータの`require(:モデル名)`の部分を消す方法)が出てくることで有名です。例えば、以下のような記事が出てきます。
 - [【Rails】param is missing or the value is empty:について](https://qiita.com/Takka_Log/items/32dae78d7e3892e7b051)
 - [【Rails6】param is missing or the value is empty: postで少し詰まったが無事解決](https://qiita.com/kazuki13070311/items/cdd4917af204e00de001)
@@ -40,7 +41,9 @@ tags:
 ```
 <ActionController::Parameters {(略),"title"=>"5", "commit"=>"Save", "controller"=>"posts", "action"=>"create"} permitted: true>
 ```
-となるでしょう。違いは`"post"=>{}`の中に`"title"`があるか、裸のまま`"title"`が置かれているかです。つまり、`form_with`でモデルがちゃんと指定できていれば、パラメータは`{ モデル => { カラム => そのカラムの値 } }`のようになるということです。`form_with`でモデルが指定できていなければ`{ カラム => そのカラムの値 }`だけですね。
+となるでしょう。
+違いは`"post"=>{}`の中に`"title"`があるか、裸のまま`"title"`が置かれているかです。
+つまり、`form_with`でモデルがちゃんと指定できていれば、パラメータは`{ モデル => { カラム => そのカラムの値 } }`のようになるということです。`form_with`でモデルが指定できていなければ`{ カラム => そのカラムの値 }`だけですね。
 続いてストロングパラメータを見ましょう。
 ```
 params.require(:post).permit(:title)
@@ -52,6 +55,7 @@ params.permit(:title)
 ```
 こいつの意味はもちろん、「`params`(≒前述したターミナルログのパラメータ)の中から`title`を探す。そしてその`title`の保存を許可する」です。
 もうお分かりいただけたでしょうか。**`form_with`でモデルが指定できていないとき、パラメータにモデル名が含まれていないので`require(:モデル名)`を消すと上手くいく**というのが、この解決策が蔓延っている原因です。
+
 ここまでの説明をまとめます。
 
 ```

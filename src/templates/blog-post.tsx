@@ -7,7 +7,6 @@ import { TwitterShareButton } from "react-share"
 
 const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
   const post = data.markdownRemark!
-  const { previous, next } = data
   const siteTitle = data.site?.siteMetadata?.title as string
   const siteUrl = data.site?.siteMetadata?.siteUrl as string
   const title = post.frontmatter.title
@@ -25,7 +24,7 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
           <p className="text-right">{post.frontmatter.date}</p>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: replaceLineBreak(post.html!) }}
+          dangerouslySetInnerHTML={{ __html: post.html! }}
           itemProp="articleBody"
         />
         <TwitterShareButton
@@ -39,48 +38,31 @@ const BlogPostTemplate: FC<{ data: BlogPostBySlugQuery }> = ({ data }) => {
         </TwitterShareButton>
       </article>
       <hr className="mt-2" />
-      <nav className="blog-post-nav p-6 max-w-full">
-        <ul className="flex flex-wrap justify-between list-none p-0 text-sm">
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+      <nav className="blog-post-nav p-6 max-w-full flex flex-col">
+        <Link to="/" className="text-sm underline text-center">TOPへ戻る</Link>
       </nav>
     </Layout>
   )
 }
 
-const replaceLineBreak = (text: string): string => {
-  const splitText = text.split(/<[^<]+>/)
-  const imgText = text.match(/<[^<]+>/g)
-  let res = ""
-  splitText.forEach((t, i) => {
-    res += t.replace(/\n/g, "<br>")
-    if (imgText && imgText.length > i) {
-      res += imgText[i]
-    }
-  })
-  return res
-}
+// const replaceLineBreak = (text: string): string => {
+//   const splitText = text.split(/<[^<]+>/)
+//   const imgText = text.match(/<[^<]+>/g)
+//   let res = ""
+//   splitText.forEach((t, i) => {
+//     res += t.replace(/\n/g, "<br>")
+//     if (imgText && imgText.length > i) {
+//       res += imgText[i]
+//     }
+//   })
+//   return res
+// }
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
   ) {
     site {
       siteMetadata {
@@ -99,22 +81,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY年MM月DD日")
         tags
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
       }
     }
   }
