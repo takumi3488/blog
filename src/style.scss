@@ -98,6 +98,19 @@ h6 {
     color: #3196e2;
   }
 
+  // コードブロック
+  .gatsby-highlight {
+    line-height: 1;
+  }
+  .gatsby-code-title {
+    margin-bottom: -0.65rem;
+    padding: 0.7rem 1.05rem;
+    background: #c0bdbb;
+    font-size: 0.9rem;
+    line-height: 1;
+    font-weight: bold;
+  }
+
   #twitter-widget-0 {
     margin: 20px 0 0 auto;
   }

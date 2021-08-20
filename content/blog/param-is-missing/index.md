@@ -16,16 +16,16 @@ tags:
 ## 解決策
 扱うモデル名は、ここでは`Post`としておきます。
 コントローラに
-```rb
+```rb:title=posts_controller.rb
 @post = Post.new
 ```
 と書き、viewは
-```
+```erb:title=posts/new.html.erb
 <%= form_with model: @post do |f| %>
 ```
 などとしましょう。
 あるいはコントローラにインスタンス変数を用意せずにviewに直接
-```
+```erb:title=posts/new.html.erb
 <%= form_with model: Post.new do |f| %>
 ```
 と書いても良いです。
@@ -45,12 +45,12 @@ tags:
 違いは`"post"=>{}`の中に`"title"`があるか、裸のまま`"title"`が置かれているかです。
 つまり、`form_with`でモデルがちゃんと指定できていれば、パラメータは`{ モデル => { カラム => そのカラムの値 } }`のようになるということです。`form_with`でモデルが指定できていなければ`{ カラム => そのカラムの値 }`だけですね。
 続いてストロングパラメータを見ましょう。
-```
+```rb:title=posts_controller.rb
 params.require(:post).permit(:title)
 ```
 こいつの意味は、「`params`(≒前述したターミナルログのパラメータ)の中から`post`を探し、その`post`の中から`title`を探す。そしてその`title`の保存を許可する」くらいの意味です。
 よく挙げられるおかしな解決策(`require(:post)`を消す方法)と比べてみましょう。
-```
+```rb:title=posts_controller.rb
 params.permit(:title)
 ```
 こいつの意味はもちろん、「`params`(≒前述したターミナルログのパラメータ)の中から`title`を探す。そしてその`title`の保存を許可する」です。
@@ -94,13 +94,13 @@ require(:モデル名)は消さなければならない
 前者の方は`form_for`や`form_tag`について調べてもらうとして、後者の方は単純です。
 データをupdateするにはどのデータをupdateするのかを指定する必要があり、その指定の仕方として最も簡単なのが、`form_with`のmodelにデータを渡すことだからです。
 コントローラ側で
-```rb
+```rb:title=posts_controller.rb
 def edit
   @post = Post.find(params[:id])
 end
 ```
 として、viewで
-```
+```erb:title=posts/new.html.erb
 <%= form_with model: @post do |f| %>
 ```
 とするだけです。(`create`では`@post = Post.new`でした。)

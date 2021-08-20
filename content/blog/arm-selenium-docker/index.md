@@ -15,8 +15,7 @@ tags:
 これを使わない手はないぞと思い、さっそく使い始めました。
 
 
-```Dockerfile
-# Dockerfile
+```Dockerfile:title=Dockerfile
 FROM python:3.10.0b4
 
 WORKDIR /usr/src/app
@@ -28,10 +27,8 @@ CMD [ "python", "./main.py" ]
 ```
 
 
-```yml
-# docker-compose.yml
+```yml:title=docker-compose.yml
 version: '3'
-
 services: 
   python:
     build: .
@@ -49,8 +46,7 @@ services:
 ```
 
 
-```py
-# main.py
+```py:title=main.py
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -76,7 +72,7 @@ dockerhubのOverviewにGithubのURLが載っているので、そこからDokcer
 
 
 まず、[StandaloneChromeのDockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/trunk/StandaloneChrome/Dockerfile)をチェックしましょう。
-```
+```Dockerfile:title=Dockerfile
 FROM selenium/node-chrome:4.0.0-rc-1-prerelease-20210713
 ```
 Seleniumが出している他のimageに依存しているようです。このimageも同じレポジトリにDockerfileが載っているので読んでみますが、また他のSelenium製のimageをベースに作成されていることがわかります。さらに辿っていくと、何度かたらい回しにされた後、最終的に[このDockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/trunk/Base/Dockerfile)に辿り着くはずです。
@@ -90,8 +86,7 @@ Seleniumが出している他のimageに依存しているようです。このi
 野良imageを使う時にはセキュリティリスクがないかを慎重にチェックしなければなりませんが、Selenium公式版からほとんど変わっていないのでcommit履歴を見れば安全なことはすぐわかると思います。
 ではこのimageを使って動かしてみましょう。
 
-```yml
-# docker-compose.yml
+```yml:title=docker-compose.yml
   selenium:
     image: henningn/selenium-standalone-firefox
 ```
