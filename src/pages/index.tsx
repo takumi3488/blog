@@ -21,7 +21,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
       <Seo />
       <div
         className="grid gap-2 p-6 w-full"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(12rem, 1fr))" }}
       >
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -31,7 +31,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
               itemScope
               itemType="http://schema.org/Article"
               key={post.fields.slug}
-              className="border border-gray-400 rounded-xl p-3 h-48 sm:h-60 flex flex-col justify-between shadow-md"
+              className="border border-gray-400 rounded-xl p-3 flex flex-col justify-between shadow-md"
             >
               <header>
                 <h2>
