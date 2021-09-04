@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 import Header from "./header"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { TagsQuery } from "../../graphql-types"
@@ -19,6 +19,12 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
     }
   `)
   const tags = data.allTagsCsv.nodes
+  useEffect(()=>{
+    if (window) {
+      (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+      (window as any).adsbygoogle.push({})
+    }
+  }, [title])
   return (
     <div className="min-h-screen flex flex-col">
       <Header title={title} />
@@ -27,7 +33,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
           <ul className="list-none">
-            {tags.map((tag,i) => (
+            {tags.map((tag, i) => (
               <Link to={`/?tag=${tag.name}`} key={i}>
                 <li
                   className={`mb-2 ${
@@ -41,6 +47,14 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
           </ul>
         </aside>
       </div>
+      <ins
+        className="adsbygoogle"
+        style={{display: "block"}}
+        data-ad-client="ca-pub-4022474033409111"
+        data-ad-slot="5414275602"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
       <footer className="w-full text-center text-white bg-gray-800 p-4">
         <small>© {new Date().getFullYear()} Takumi Mori</small>
       </footer>
