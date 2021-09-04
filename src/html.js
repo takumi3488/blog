@@ -17,6 +17,11 @@ export default function HTML(props) {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4022474033409111"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
