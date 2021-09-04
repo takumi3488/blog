@@ -24,7 +24,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
       (window as any).adsbygoogle = (window as any).adsbygoogle || [];
       (window as any).adsbygoogle.push({})
     }
-  }, [title])
+  }, [])
   return (
     <div className="min-h-screen flex flex-col">
       <Header title={title} />
