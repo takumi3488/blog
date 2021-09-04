@@ -33,7 +33,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
           {children}
           <ins
             className="adsbygoogle"
-            style={{ display: "block", margin: "20 auto" }}
+            style={{ display: "block", margin: "20px auto" }}
             data-ad-client="ca-pub-4022474033409111"
             data-ad-slot="5187044897"
             data-ad-format="auto"
