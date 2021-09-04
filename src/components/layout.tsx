@@ -47,14 +47,14 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
           </ul>
         </aside>
       </div>
-      {/* <ins
+      <ins
         className="adsbygoogle"
         style={{display: "block"}}
         data-ad-client="ca-pub-4022474033409111"
         data-ad-slot="5414275602"
         data-ad-format="auto"
         data-full-width-responsive="true"
-      ></ins> */}
+      ></ins>
       <footer className="w-full text-center text-white bg-gray-800 p-4">
         <small>© {new Date().getFullYear()} Takumi Mori</small>
       </footer>
