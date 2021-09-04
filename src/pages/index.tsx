@@ -21,7 +21,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
       <Seo />
       <div
         className="grid gap-2 p-6 w-full"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}
       >
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
