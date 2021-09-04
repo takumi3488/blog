@@ -23,40 +23,61 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
         className="grid gap-2 p-6 w-full"
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(12rem, 1fr))" }}
       >
-        {posts.map(post => {
+        {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <article
-              itemScope
-              itemType="http://schema.org/Article"
-              key={post.fields.slug}
-              className="border border-gray-400 rounded-xl p-3 flex flex-col justify-between shadow-md"
-            >
-              <header>
-                <h2>
-                  <Link to={post.fields.slug} itemProp="url">
-                    <span itemProp="headline" className="text-lg">
-                      {title}
-                    </span>
-                  </Link>
-                </h2>
-              </header>
-              <footer className="flex flex-col gap-2">
-                <div className="flex gap-1 flex-wrap">
-                  {post.frontmatter.tags.map(tag => (
-                    <Link
-                      to={`/?tag=${tag}`}
-                      className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300"
-                      key={tag}
-                    >
-                      {tags.find(t => t.name === tag)?.name}
+            <>
+              <article
+                itemScope
+                itemType="http://schema.org/Article"
+                key={post.fields.slug}
+                className="border border-gray-400 rounded-xl p-3 flex flex-col justify-between shadow-md"
+              >
+                <header>
+                  <h2>
+                    <Link to={post.fields.slug} itemProp="url">
+                      <span itemProp="headline" className="text-lg">
+                        {title}
+                      </span>
                     </Link>
-                  ))}
-                </div>
-                <small className="text-right">{post.frontmatter.date}</small>
-              </footer>
-            </article>
+                  </h2>
+                </header>
+                <footer className="flex flex-col gap-2">
+                  <div className="flex gap-1 flex-wrap">
+                    {post.frontmatter.tags.map(tag => (
+                      <Link
+                        to={`/?tag=${tag}`}
+                        className="p-1 border rounded-md border-gray-300 text-xs hover:bg-gray-300"
+                        key={tag}
+                      >
+                        {tags.find(t => t.name === tag)?.name}
+                      </Link>
+                    ))}
+                  </div>
+                  <small className="text-right">{post.frontmatter.date}</small>
+                </footer>
+              </article>
+              {i === 2 ? (
+                <article
+                  itemScope
+                  itemType="http://schema.org/Article"
+                  key={post.fields.slug}
+                  className="border border-gray-400 rounded-xl p-3 flex flex-col justify-between shadow-md"
+                >
+                  <ins
+                    className="adsbygoogle"
+                    style={{ display: "block" }}
+                    data-ad-format="fluid"
+                    data-ad-layout-key="-gu-18+5g-2f-83"
+                    data-ad-client="ca-pub-4022474033409111"
+                    data-ad-slot="1913820773"
+                  ></ins>
+                </article>
+              ) : (
+                <></>
+              )}
+            </>
           )
         })}
       </div>
