@@ -21,7 +21,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
       <Seo />
       <div
         className="grid gap-2 p-6 w-full"
-        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(12rem, 1fr))" }}
+        style={{ gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))" }}
       >
         {posts.map((post, i) => {
           const title = post.frontmatter.title || post.fields.slug
@@ -67,9 +67,9 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                 >
                   <ins
                     className="adsbygoogle"
-                    style={{ display: "block" }}
+                    style={{display: "block"}}
                     data-ad-format="fluid"
-                    data-ad-layout-key="-gu-18+5g-2f-83"
+                    data-ad-layout-key="-i1-y+5r-2a-c0"
                     data-ad-client="ca-pub-4022474033409111"
                     data-ad-slot="1913820773"
                   />
