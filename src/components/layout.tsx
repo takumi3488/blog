@@ -49,9 +49,9 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
       </div>
       <ins
         className="adsbygoogle"
-        style={{display: "block"}}
+        style={{ display: "block" }}
         data-ad-client="ca-pub-4022474033409111"
-        data-ad-slot="5414275602"
+        data-ad-slot="5187044897"
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
