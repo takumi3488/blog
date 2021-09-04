@@ -19,17 +19,27 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
     }
   `)
   const tags = data.allTagsCsv.nodes
-  useEffect(()=>{
+  useEffect(() => {
     if (window) {
-      (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-      (window as any).adsbygoogle.push({})
+      ;(window as any).adsbygoogle = (window as any).adsbygoogle || []
+      ;(window as any).adsbygoogle.push({})
     }
   }, [])
   return (
     <div className="min-h-screen flex flex-col">
       <Header title={title} />
       <div className="flex justify-center w-full md:w-5/6 lg:w-2/3 xl:w-1/2 xl:max-w-screen-md flex-1 m-auto">
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          {children}
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", margin: "20 auto" }}
+            data-ad-client="ca-pub-4022474033409111"
+            data-ad-slot="5187044897"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+        </main>
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
           <ul className="list-none">
@@ -47,14 +57,6 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
           </ul>
         </aside>
       </div>
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-4022474033409111"
-        data-ad-slot="5187044897"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
       <footer className="w-full text-center text-white bg-gray-800 p-4">
         <small>© {new Date().getFullYear()} Takumi Mori</small>
       </footer>
