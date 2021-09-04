@@ -12,7 +12,25 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        <script data-ad-client="ca-pub-4022474033409111" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+        <script
+          data-ad-client="ca-pub-4022474033409111"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4022474033409111"
+          crossorigin="anonymous"
+        ></script>
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-4022474033409111"
+          data-ad-slot="4488206749"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
