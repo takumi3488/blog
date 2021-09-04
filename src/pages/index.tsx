@@ -58,7 +58,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                   <small className="text-right">{post.frontmatter.date}</small>
                 </footer>
               </article>
-              {i === 2 ? (
+              {i === 1 ? (
                 <article
                   itemScope
                   itemType="http://schema.org/Article"
