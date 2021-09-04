@@ -72,7 +72,7 @@ const BlogIndex: FC<{ data: BlogIndexQuery; location: Location }> = ({
                     data-ad-layout-key="-gu-18+5g-2f-83"
                     data-ad-client="ca-pub-4022474033409111"
                     data-ad-slot="1913820773"
-                  ></ins>
+                  />
                 </article>
               ) : (
                 <></>

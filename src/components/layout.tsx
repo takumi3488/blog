@@ -38,7 +38,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
             data-ad-slot="5187044897"
             data-ad-format="auto"
             data-full-width-responsive="true"
-          ></ins>
+          /> 
         </main>
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
