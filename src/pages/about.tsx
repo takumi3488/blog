@@ -59,6 +59,7 @@ const About: FC<{data: AboutQuery}> = ({data}) => {
                   <li>Fargate</li>
                   <li>DynamoDB</li>
                   <li>AppSync</li>
+                  <li>Amplify</li>
                 </ul>
               </li>
             </ul>
@@ -68,19 +69,30 @@ const About: FC<{data: AboutQuery}> = ({data}) => {
                 <ul>
                   <li>科学計算</li>
                   <li>競技プログラミング</li>
-                  <li>Firebase</li>
                   <li>CI/CD(Github Actions)</li>
-                  <li>Hasure</li>
+                  <li>Hasura</li>
                   <li>Chrome拡張機能</li>
                   <li>Selenium</li>
+                  <li>Vercel</li>
                 </ul>
               </li>
             </ul>
           </div>
           <h3>リンク</h3>
           <ul>
-            <li><a href={`https://github.com/${social?.github}`} target="_blank">Github</a></li>
-            <li><a href={`https://twitter.com/${social?.twitter}`} target="_blank">Twitter</a></li>
+            <li>
+              <a href={`https://github.com/${social?.github}`} target="_blank">
+                Github
+              </a>
+            </li>
+            <li>
+              <a
+                href={`https://twitter.com/${social?.twitter}`}
+                target="_blank"
+              >
+                Twitter
+              </a>
+            </li>
           </ul>
         </section>
         <hr className="my-4" />
