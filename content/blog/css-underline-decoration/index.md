@@ -35,7 +35,7 @@ p.sample-text {
 <br>
 <p style="border-bottom:solid 5px yellow;display:inline-block;">テキスト</p>
 
-パッと思いつくのは、border-bottomeを使った方法です。
+パッと思いつくのは、border-bottomを使った方法です。
 
 ```css
 /* style.css */
