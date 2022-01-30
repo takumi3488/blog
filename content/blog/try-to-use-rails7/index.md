@@ -33,7 +33,7 @@ Rails7だからという話ではないですが、PostgreSQLでRailsを作成�
 
 一気に書きます。
 
-```docker-compose.yml
+```yml:title=docker-compose.yml
 version: '3'
 
 services:
@@ -49,13 +49,13 @@ services:
       - ./data/development:/var/lib/postgresql/data
 ```
 
-```.env
+```txt:title=.env
 POSTGRES_USER=admin
 POSTGRES_PASSWORD=V8GrknqpuIEG4GjDWtPj8g
 TZ="Asia/Tokyo"
 ```
 
-```database.yml
+```yml:title=database.yml
 default: &default
   adapter: postgresql
   encoding: utf8
@@ -85,7 +85,7 @@ RailsはDocker化せずにDBだけDocker化するやり方で書いているの�
 
 後はRailsで.envファイルを読み込むために、Gemfileに
 
-```Gemfile
+```rb:title=Gemfile
 gem "dotenv-rails"
 ```
 
