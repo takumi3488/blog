@@ -53,5 +53,9 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "tags": "yarn node --loader ts-node/esm src/utils/tags.ts"
+  },
+  "volta": {
+    "node": "14.18.3",
+    "yarn": "1.22.17"
   }
 }
