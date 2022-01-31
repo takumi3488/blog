@@ -66,17 +66,17 @@ default: &default
 
 development:
   <<: *default
-  database: workbook_manager_development
+  database: myapp_development
 
 test:
   <<: *default
-  database: workbook_manager_test
+  database: myapp_test
 
 production:
   <<: *default
-  database: workbook_manager_production
+  database: myapp_production
   username: workbook_manager
-  password: <%= ENV["WORKBOOK_MANAGER_DATABASE_PASSWORD"] %>
+  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
 ```
 
 RailsはDocker化せずにDBだけDocker化するやり方で書いているので注意してください。RailsもDocker化する方法については今回は書きません。そのうち使う機会があれば記事にもしようと思います。
