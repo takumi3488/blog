@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 main {
-  width: clamp(250px, 100vw, 630px);
+  width: clamp(250px, 100vw, 750px);
 }
 p {
   line-height: 1.8;
@@ -109,7 +109,7 @@ h6 {
     margin-bottom: -0.65rem;
     padding: 0.7rem 1.05rem;
     background: #c0bdbb;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1;
     font-weight: bold;
   }
