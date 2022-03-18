@@ -17,7 +17,7 @@ https://takumi3488.com/
   * Tailwind
 * Vercel(ホスティング)
 
-## 工夫した点
+## その他
 
 * VercelでbuildコマンドをOverrideすることにより、デプロイ前にタグ情報を更新できるようにした
 * URLSearchParams等の比較的新しいAPIを利用した
