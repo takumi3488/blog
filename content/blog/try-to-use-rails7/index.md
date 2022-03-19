@@ -17,13 +17,13 @@ Rails7が正式リリースされてから1ヶ月近く経ちますが、よう�
 おすすめのオプションは以下の通りです。
 
 ```terminal
-rails _7.0.1_ new workbook_manager -T -c tailwind -d postgresql
+rails _7.0.1_ new app_name -T -c tailwind -d postgresql
 ```
 
 - `_7.0.1_`はバージョンの指定。デフォルトが7.0.1になっていれば付けなくても良い
 - `-T`はテストをスキップするオプション。テスティングライブラリはデフォルトだと`Minitest`なので`Rspec`を使う場合は付けた方が良い
 - `-c tailwind`はCSSライブラリとしてTailwindを指定している。Node.js不要でCSSを勝手に必要な分だけ取ってきてくれる機能が新しく搭載されたので、今回は一番効果を実感できそうなこれを選んだ。
-- `-d postgresql`はデータベースにPostgreSQLを選択している。デフォルトのSQLiteはActiveStorageなんかを使うと、使用上の問題ですぐエラーが起きるのでPostgreSQLかMySQL等がおすすめ。今回は後でHerokuにあげたかったのでHeroku上で無料で使えるPostgreSQLを開発環境から使うことに
+- `-d postgresql`はデータベースにPostgreSQLを選択している。デフォルトのSQLiteはActiveStorageなんかを使うと、仕様上の問題ですぐエラーが起きるのでPostgreSQLかMySQL等がおすすめ。今回は後でHerokuにあげたかったのでHeroku上で無料で使えるPostgreSQLを開発環境から使うことに
 
 このコマンドでとりあえず作成できるはずです。
 
