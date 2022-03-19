@@ -38,7 +38,7 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
             data-ad-slot="5187044897"
             data-ad-format="auto"
             data-full-width-responsive="true"
-          /> 
+          />
         </main>
         <aside className="hidden md:block w-40 p-6">
           <h2 className="font-semibold mb-4">タグ一覧</h2>
@@ -55,6 +55,12 @@ const Layout: FC<{ title: string; searchTag?: string }> = ({
               </Link>
             ))}
           </ul>
+          <ins
+            className="adsbygoogle"
+            style={{ display: "inline-block", width: "160px", height: "320px" }}
+            data-ad-client="ca-pub-4022474033409111"
+            data-ad-slot="7925339860"
+          />
         </aside>
       </div>
       <footer className="w-full text-center text-white bg-gray-800 p-4">
