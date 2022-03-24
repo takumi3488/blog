@@ -34,15 +34,12 @@ Rails7だからという話ではないですが、PostgreSQLでRailsを作成�
 一気に書きます。
 
 ```yml:title=compose.yml
-version: '3'
-
 services:
   db:
     image: postgres:latest
     restart: always
     env_file:
       - .env
-      - .env.development
     ports:
       - 5432:5432
     volumes:
