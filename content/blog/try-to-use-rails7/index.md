@@ -33,7 +33,7 @@ Rails7だからという話ではないですが、PostgreSQLでRailsを作成�
 
 一気に書きます。
 
-```yml:title=docker-compose.yml
+```yml:title=compose.yml
 version: '3'
 
 services:
